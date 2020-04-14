@@ -15,9 +15,9 @@ Technical specification:
 -----------------------------
 The application will be using the MERN stack.
 
-MongoDB
-Express.js
-React + Redux(For state handling)
+MongoDB ||
+Express.js ||
+React + Redux(For state handling) ||
 Node.js
 
 1. Client-side I also plan on using bootstrap or specifically reactstrap for easy

@@ -22,7 +22,7 @@ Node.js
 
 1. Client-side I also plan on using bootstrap or specifically reactstrap for easy
 component building. However I would like a comment if this is allowed.
-2. Mongoose will handle data sent to MongoDB. 
+2. Mongoose will handle the Schemas and data that is sent to MongoDB.
 3. Nodemon will be used to run client and server-side at the same time. 
 4. So far it's not determined but I think I will use Heroku for deployment and 
 try Jenkins for build-tools.

@@ -2,7 +2,7 @@
 
 Functional specification:
 -----------------------------
-The purpose of the application is to allow a user to log-in and create a list
+The purpose of the application is to allow a user to log-in and create a list (or lists for e.g. different genres)
 of their favorite movies.
 1. The user is able to log-in and out of the application.
 2. After creating a list item it's added to their account and 

@@ -5,7 +5,13 @@ import {
   ListGroup,
   ListGroupItem,
   Button,
-  Media
+  Media,
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardTitle,
+  CardSubtitle
 } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
@@ -29,7 +35,7 @@ class MovieList extends Component {
       <Container>
           <ListGroup>
             <TransitionGroup className="movie-list">
-              {items.map(({ _id, name}) => (
+              {items.map(({ _id, name, description, rating}) => (
                 <CSSTransition key={ _id } timeout={500} classNames="fade">
                   <ListGroupItem>
                     <Button
@@ -46,6 +52,7 @@ class MovieList extends Component {
             ))}
             </TransitionGroup>
           </ListGroup>
+
       </Container>
     );
   }

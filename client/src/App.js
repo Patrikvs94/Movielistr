@@ -16,7 +16,7 @@ function App() {
       <div className="App">
         <AppNavbar/>
         <Container>
-          <ItemModal className="list-rounded-corner"/>
+          <ItemModal />
           <MovieList />
         </Container>
       </div>

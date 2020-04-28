@@ -10,6 +10,14 @@ const ItemSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  rating: {
+    type: String,
+    required: true
   }
 });
 

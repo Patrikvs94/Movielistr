@@ -1,4 +1,4 @@
- const express = require('express');
+const express = require('express');
 const router = express.Router();
 
 //Item Model
@@ -20,7 +20,8 @@ router.post('/', (req, res) => {
   const newItem = new Item({
     name: req.body.name,
     description: req.body.description,
-    rating: req.body.rating
+    rating: req.body.rating,
+    poster: req.body.poster
   });
 
   newItem.save().then(item => res.json(item));

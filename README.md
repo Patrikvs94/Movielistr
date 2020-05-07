@@ -27,4 +27,4 @@ component building. However I would like a comment if this is allowed.
 4. So far it's not determined but I think I will use Heroku for deployment and 
 try Jenkins for build-tools.
 5. For authentication of users I'm thinking about using Octa or Auth0, however
-I'm still looking into using the most simplistic of authentication.
+I'm still looking into using the most simplistic of authentication...

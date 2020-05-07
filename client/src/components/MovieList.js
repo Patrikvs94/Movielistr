@@ -11,13 +11,14 @@ import {
   CardText,
   CardBody,
   CardTitle,
-  CardSubtitle
+  CardSubtitle,
+  Row,
+  Col
 } from 'reactstrap';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { getItems, deleteItem } from '../actions/itemActions';
 import PropTypes from 'prop-types';
-
+import '../App.css';
 
 class MovieList extends Component {
 
@@ -33,26 +34,31 @@ class MovieList extends Component {
     const {items} = this.props.item;
     return(
       <Container>
-          <ListGroup>
-            <TransitionGroup className="movie-list">
-              {items.map(({ _id, name, description, rating}) => (
-                <CSSTransition key={ _id } timeout={500} classNames="fade">
-                  <ListGroupItem>
+        <Row>
+          {items.map(({ _id, name, description, rating, poster}) => (
+            <Col key= {_id} lg={4} sm={6} xs={12}>
+              <Card className="mb-2">
+                <CardImg top style={{maxHeight: 450}} src={poster}></CardImg>
+                <CardBody>
+                  <CardTitle style={{fontFamily: 'JenrivTitling', fontSize: 22}}>{name}</CardTitle>
+                  <CardSubtitle style={{justifyContent: 'center'}}><h6 style={{display: 'inline-flex'}}>{rating} / 10.0</h6></CardSubtitle>
+                  <CardText style={{overflowY: 'scroll', maxHeight: 70}}>{description}</CardText>
+                  <div className="text-center">
                     <Button
-                      className="remove-btn"
+                      className="remove-btn text-center"
                       color="danger"
                       size="sm"
+                      style={{borderRadius: '25px'}}
                       onClick={this.onDeleteClick.bind(this, _id)}
                     >
                       &times;
                     </Button>
-                    {name}
-                  </ListGroupItem>
-                </CSSTransition>
-            ))}
-            </TransitionGroup>
-          </ListGroup>
-
+                  </div>
+                </CardBody>
+              </Card>
+            </Col>
+          ))}
+        </Row>
       </Container>
     );
   }

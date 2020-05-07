@@ -24,14 +24,20 @@ class AppNavbar extends Component {
   render() {
     return(
       <div >
-        <Navbar color="dark" dark expand="sm" className="mb-5">
+        <Navbar style={{backgroundColor: '#640D14'}} dark expand="sm" className="mb-5">
           <Container>
-            <NavbarBrand href="/">MovieListr</NavbarBrand>
+            <NavbarBrand style={{fontWeight: 'bold', color: '#FFFFFF'}} href="/">MovieListr</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
                 <NavItem>
-                  <NavLink href="https://www.google.com/">Google</NavLink>
+                  <NavLink style={{color: '#FFFFFF'}}href="https://www.google.com/">About</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink style={{color: '#FFFFFF'}}href="https://www.google.com/">My movie decks</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink style={{color: '#FFFFFF'}}href="https://www.google.com/">Sign in</NavLink>
                 </NavItem>
               </Nav>
             </Collapse>

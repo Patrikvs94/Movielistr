@@ -18,6 +18,10 @@ const ItemSchema = new Schema({
   rating: {
     type: String,
     required: true
+  },
+  poster: {
+    type: String,
+    required: true
   }
 });
 

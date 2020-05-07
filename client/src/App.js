@@ -13,7 +13,7 @@ import './App.css';
 function App() {
   return (
     <Provider store={store}>
-      <div className="App">
+      <div className="App" style={{backgroundColor: '#000000'}}>
         <AppNavbar/>
         <Container>
           <ItemModal />

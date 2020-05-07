@@ -19,3 +19,8 @@
   opacity: 0.01;
   transition: opacity 1000ms ease-in;
 }
+
+@font-face {
+  font-family: 'JenrivTitling';
+  src: local('JenrivTitling'), url(./fonts/JenrivTitling-Bold.otf) format('truetype');
+}

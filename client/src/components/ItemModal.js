@@ -12,12 +12,14 @@ import {
 import { connect } from 'react-redux';
 import { addItem } from '../actions/itemActions';
 
+const API_KEY = '4fc01747';
+const API_URL = 'http://www.omdbapi.com/';
+
 class ItemModal extends Component {
   state = {
     modal: false,
-    name: '',
-    description: '',
-    rating: ''
+    request: '',
+    //suggestions: []
   }
 
   toggle = () => {
@@ -26,24 +28,51 @@ class ItemModal extends Component {
     })
   }
 
+/*
+  getInfo = () => {
+    fetch(`${API_URL}?api_key=${API_KEY}&s=${this.state.request}`)
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({
+          suggestions: data.Title
+        })
+      })
+  }
+*/
   onChange = (e) => {
+    e.preventDefault();
+
     this.setState({
-      [e.target.name]: e.target.value,
-      [e.target.description]: e.target.value,
-      [e.target.rating]: e.target.value});
+      request: e.target.value
+    })
   }
 
   onSubmit = (e) => {
     e.preventDefault();
 
-    const newItem = {
-      name: this.state.name,
-      description: this.state.description,
-      rating: this.state.rating
-    };
+    fetch(`${API_URL}?apikey=${API_KEY}&t=${this.state.request}`)
+   .then((res) => res.json())
+   .then((data) => {
+     //Just for error handling
+      if(data.Error === 'Movie Not Found!')
+        console.log(`Can't find movie`);
 
-    //Adds item through action
-    this.props.addItem(newItem);
+      //Check what data comes in on the console
+      console.log(data);
+
+      //Create an item to post to our database
+      const newItem = {
+        name: data.Title,
+        description: data.Plot,
+        rating: data.imdbRating,
+        poster: data.Poster
+       };
+
+        //Adds item through action
+        this.props.addItem(newItem);
+   }).catch(function (err) {
+       console.log('Caught!', err)
+   })
 
     //Closes modal
     this.toggle();
@@ -54,9 +83,10 @@ class ItemModal extends Component {
       <div>
         <Button
         color="dark"
-        style={{marginBottom: '2rem'}}
+        style={{marginBottom: '2rem', marginLeft: '40%'}}
         onClick={this.toggle}
-        >Add Movie</Button>
+        >Add movie to your deck
+        </Button>
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Add To Movie List</ModalHeader>
@@ -64,10 +94,8 @@ class ItemModal extends Component {
             <Form onSubmit={this.onSubmit}>
               <FormGroup>
                 <Label for="item">Movie</Label>
-                <Input type="text" name="name" id="item" placeholder="Movie Name" onChange={this.onChange}/>
-                <Input type="text" name="description" id="item" placeholder="Description" onChange={this.onChange}/>
-                <Input type="text" name="rating" id="item" placeholder="Rating" onChange={this.onChange}/>
-                <Button color="dark" style={{marginTop: '2rem'}} block>Add Movie</Button>
+                <Input type="text" name="request" id="item" placeholder="What movie do you want to add? Enter a correct movie name." onChange={this.onChange} />
+                <Button color="dark" style={{marginTop: '2rem'}} block>Add movie</Button>
               </FormGroup>
             </Form>
           </ModalBody>

@@ -1,4 +1,6 @@
-Mid-course screencast: https://www.youtube.com/watch?v=vFAmn3bkCEA&feature=youtu.be
+Mid-course screencast:
+------------------------------
+[](https://www.youtube.com/watch?v=vFAmn3bkCEA&feature=youtu.be)
 
 
 

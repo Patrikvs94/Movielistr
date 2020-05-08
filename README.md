@@ -1,3 +1,7 @@
+Mid-course screencast: https://www.youtube.com/watch?v=vFAmn3bkCEA&feature=youtu.be
+
+
+
 # TDDD27_2020_awesomewebproject
 
 Functional specification:

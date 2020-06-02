@@ -1,10 +1,4 @@
-Project screencast:
-------------------------------
-[https://youtu.be/iCfklrpsCqg](url)
 
-Individual Oral Screencast:
-------------------------------
-[https://youtu.be/7OesV5si9M4](url)
 
 Mid-course screencast:
 ------------------------------

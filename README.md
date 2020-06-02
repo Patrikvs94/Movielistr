@@ -1,8 +1,14 @@
+Project screencast:
+------------------------------
+[https://youtu.be/iCfklrpsCqg](url)
+
+Individual Oral Screencast:
+------------------------------
+[https://youtu.be/7OesV5si9M4](url)
+
 Mid-course screencast:
 ------------------------------
 [https://www.youtube.com/watch?v=vFAmn3bkCEA&feature=youtu.be](url)
-
-
 
 # TDDD27_2020_awesomewebproject
 

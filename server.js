@@ -2,8 +2,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
-const dinmamma = 0;
-
 const items = require('./routes/api/items');
 
 const app = express();

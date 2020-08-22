@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import {
   Container,
-  List,
-  ListGroup,
-  ListGroupItem,
   Button,
-  Media,
   Card,
   CardImg,
   CardText,
@@ -21,6 +17,11 @@ import PropTypes from 'prop-types';
 import '../App.css';
 
 class MovieList extends Component {
+  static propTypes = {
+    getItems: PropTypes.func.isRequired,
+    item: PropTypes.object.isRequired,
+    isAuthenticated: PropTypes.bool
+  }
 
   componentDidMount(){
     this.props.getItems();
@@ -44,15 +45,17 @@ class MovieList extends Component {
                   <CardSubtitle style={{justifyContent: 'center'}}><h6 style={{display: 'inline-flex'}}>{rating} / 10.0</h6></CardSubtitle>
                   <CardText style={{overflowY: 'scroll', maxHeight: 70}}>{description}</CardText>
                   <div className="text-center">
-                    <Button
-                      className="remove-btn text-center"
-                      color="danger"
-                      size="sm"
-                      style={{borderRadius: '25px'}}
-                      onClick={this.onDeleteClick.bind(this, _id)}
-                    >
-                      &times;
-                    </Button>
+                    {this.props.isAuthenticated ?
+                      <Button
+                        className="remove-btn text-center"
+                        color="danger"
+                        size="sm"
+                        style={{borderRadius: '25px'}}
+                        onClick={this.onDeleteClick.bind(this, _id)}
+                      >
+                        &times;
+                      </Button> : null
+                    }
                   </div>
                 </CardBody>
               </Card>
@@ -64,13 +67,9 @@ class MovieList extends Component {
   }
 }
 
-MovieList.propTypes = {
-  getItems: PropTypes.func.isRequired,
-  item: PropTypes.object.isRequired
-}
-
 const mapStateToProps = (state) => ({
-  item: state.item
+  item: state.item,
+  isAuthenticated: state.auth.isAuthenticated
 })
 
 export default connect(mapStateToProps, { getItems, deleteItem })(MovieList);

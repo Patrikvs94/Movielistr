@@ -12,16 +12,13 @@ const ItemSchema = new Schema({
     default: Date.now
   },
   description: {
-    type: String,
-    required: true
+    type: String
   },
   rating: {
-    type: String,
-    required: true
+    type: String
   },
   poster: {
-    type: String,
-    required: true
+    type: String
   }
 });
 

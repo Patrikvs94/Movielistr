@@ -11,6 +11,7 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import { addItem } from '../actions/itemActions';
+import PropTypes from 'prop-types';
 
 const API_KEY = '4fc01747';
 const API_URL = 'http://www.omdbapi.com/';
@@ -20,6 +21,10 @@ class ItemModal extends Component {
     modal: false,
     request: '',
     //suggestions: []
+  }
+
+  static propTypes = {
+    isAuthenticated: PropTypes.bool
   }
 
   toggle = () => {
@@ -81,12 +86,14 @@ class ItemModal extends Component {
   render() {
     return(
       <div>
-        <Button
-        color="dark"
-        style={{marginBottom: '2rem', marginLeft: '40%'}}
-        onClick={this.toggle}
-        >Add movie to your deck
-        </Button>
+        {this.props.isAuthenticated ?
+          <Button
+            color="dark"
+            style={{marginBottom: '2rem', marginLeft: '40%'}}
+            onClick={this.toggle}
+            >Add movie to your deck
+          </Button> : <h4 className="mb-3 ml-4">Please log in to manage cards.</h4>
+        }
 
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Add To Movie List</ModalHeader>
@@ -107,7 +114,8 @@ class ItemModal extends Component {
 }
 
 const mapStateToProps = state => ({
-  item: state.item
+  item: state.item,
+  isAuthenticated: state.auth.isAuthenticated
 });
 
 export default connect(mapStateToProps, { addItem })(ItemModal);
